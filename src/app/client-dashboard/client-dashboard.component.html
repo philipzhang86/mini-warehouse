@@ -1,38 +1,13 @@
 <div class="client-dashboard">
   <div class="sidebar">
     <ul>
-      <li (click)="selectSection('info')">Client Info</li>
+      <li routerLink="/client-dashboard/client-info">Client Info</li>
       <li (click)="selectSection('asn')">ASN</li>
       <li (click)="selectSection('oms')">OMS</li>
     </ul>
   </div>
   <div class="main-content">
-    <ng-container *ngIf="selectedSection === 'info'">
-      <!-- Client Info Form -->
-      <form *ngIf="client" (ngSubmit)="updateClient()">
-        <div>
-          <label>Phone:</label>
-          <input type="text" [(ngModel)]="client.phone" name="phone" required>
-        </div>
-        <div>
-          <label>Address:</label>
-          <input type="text" [(ngModel)]="client.address" name="address" required>
-        </div>
-        <div>
-          <label>City:</label>
-          <input type="text" [(ngModel)]="client.city" name="city" required>
-        </div>
-        <div>
-          <label>State:</label>
-          <input type="text" [(ngModel)]="client.state" name="state" required>
-        </div>
-        <div>
-          <label>Country:</label>
-          <input type="text" [(ngModel)]="client.country" name="country" required>
-        </div>
-        <button type="submit">Update Info</button>
-      </form>
-    </ng-container>
+    <router-outlet></router-outlet>
     <ng-container *ngIf="selectedSection === 'asn'">
       <!-- ASN Section -->
       <p>ASN section coming soon...</p>

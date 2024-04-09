@@ -14,23 +14,23 @@ export class ClientDashboardComponent implements OnInit {
   constructor(private http: HttpClient, private authService: AuthService) { }
 
   ngOnInit(): void {
-    this.getClientInfo(); // 页面初始化时获取客户信息
+    //this.getClientInfo(); // 页面初始化时获取客户信息
   }
 
   selectSection(section: string): void {
     this.selectedSection = section;
   }
 
-  getClientInfo(): void {
-    const token = this.authService.getToken();
-    this.http.get<any>('http://localhost:9080/user-service/api/clients/my-info', { headers: new HttpHeaders({ 'Authorization': `Bearer ${token}` }) })
-      .subscribe(client => this.client = client, error => console.error('Error fetching client info', error));
-  }
+  // getClientInfo(): void {
+  //   const token = this.authService.getToken();
+  //   this.http.get<any>('http://localhost:9080/user-service/api/clients/my-info', { headers: new HttpHeaders({ 'Authorization': `Bearer ${token}` }) })
+  //     .subscribe(client => this.client = client, error => console.error('Error fetching client info', error));
+  // }
 
-  updateClient(): void {
-    const token = this.authService.getToken();
-    this.http.put('http://localhost:9080/user-service/api/clients/', this.client, { headers: new HttpHeaders({ 'Authorization': `Bearer ${token}` }) })
-      .subscribe(() => alert('Client info updated'), error => console.error('Error updating client info', error));
-  }
+  // updateClient(): void {
+  //   const token = this.authService.getToken();
+  //   this.http.put('http://localhost:9080/user-service/api/clients/', this.client, { headers: new HttpHeaders({ 'Authorization': `Bearer ${token}` }) })
+  //     .subscribe(() => alert('Client info updated'), error => console.error('Error updating client info', error));
+  // }
 }
 
