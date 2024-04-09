@@ -1,5 +1,9 @@
 <div class="client-info">
   <form (ngSubmit)="updateClient()">
+    <div *ngIf="role == 'CLIENT'">
+      <label>Password:</label>
+      <input type="password" [(ngModel)]="client.password" name="password" required>
+    </div>
     <div>
       <label>Phone:</label>
       <input type="text" [(ngModel)]="client.phone" name="phone" required>

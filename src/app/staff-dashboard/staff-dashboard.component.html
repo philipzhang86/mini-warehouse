@@ -1,5 +1,20 @@
 <div class="staff-dashboard">
-  <h2>Staff Dashboard</h2>
-  <p>欢迎，这里是员工仪表板。你可以在这里管理客户和员工的信息。</p>
-  <!-- 这里可以添加更多的功能和信息 -->
+  <div class="sidebar">
+    <ul>
+      <li routerLink="/staff-dashboard/staff-info">Staff Info</li>
+      <li (click)="selectSection('asn')">ASN</li>
+      <li (click)="selectSection('oms')">OMS</li>
+    </ul>
+  </div>
+  <div class="main-content">
+    <router-outlet></router-outlet>
+    <ng-container *ngIf="selectedSection === 'asn'">
+      <!-- ASN Section -->
+      <p>ASN section coming soon...</p>
+    </ng-container>
+    <ng-container *ngIf="selectedSection === 'oms'">
+      <!-- OMS Section -->
+      <p>OMS section coming soon...</p>
+    </ng-container>
+  </div>
 </div>

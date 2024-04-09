@@ -10,6 +10,7 @@ import { StaffDashboardComponent } from './staff-dashboard/staff-dashboard.compo
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './auth.interceptor';
 import { ClientInfoComponent } from './client-info/client-info.component';
+import { StaffInfoComponent } from './staff-info/staff-info.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ClientInfoComponent } from './client-info/client-info.component';
     LoginComponent,
     ClientDashboardComponent,
     StaffDashboardComponent,
-    ClientInfoComponent
+    ClientInfoComponent,
+    StaffInfoComponent
   ],
   imports: [
     BrowserModule,

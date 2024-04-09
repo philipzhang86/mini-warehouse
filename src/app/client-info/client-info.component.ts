@@ -9,7 +9,8 @@ import { AuthService } from '../auth.service'; // 确保你有AuthService来获�
 })
 export class ClientInfoComponent implements OnInit {
   selectedSection = 'info'; // 默认选中Client Info
-  client: any = null; // 存储客户信息
+  client: any = {}; // 存储客户信息
+  role: string | null = this.authService.getRole(); // 获取角色
 
   constructor(private http: HttpClient, private authService: AuthService) { }
 

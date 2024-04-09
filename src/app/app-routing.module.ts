@@ -4,6 +4,7 @@ import { LoginComponent } from './login/login.component';
 import { ClientDashboardComponent } from './client-dashboard/client-dashboard.component';
 import { StaffDashboardComponent } from './staff-dashboard/staff-dashboard.component';
 import { ClientInfoComponent } from './client-info/client-info.component';
+import { StaffInfoComponent } from './staff-info/staff-info.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -12,7 +13,10 @@ const routes: Routes = [
     path: 'client-dashboard', component: ClientDashboardComponent,
     children: [{ path: 'client-info', component: ClientInfoComponent }]
   },
-  { path: 'staff-dashboard', component: StaffDashboardComponent },
+  {
+    path: 'staff-dashboard', component: StaffDashboardComponent,
+    children: [{ path: 'staff-info', component: StaffInfoComponent }]
+  },
 ];
 
 @NgModule({
