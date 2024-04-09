@@ -9,13 +9,15 @@ import { ClientDashboardComponent } from './client-dashboard/client-dashboard.co
 import { StaffDashboardComponent } from './staff-dashboard/staff-dashboard.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './auth.interceptor';
+import { ClientInfoComponent } from './client-info/client-info.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     ClientDashboardComponent,
-    StaffDashboardComponent
+    StaffDashboardComponent,
+    ClientInfoComponent
   ],
   imports: [
     BrowserModule,
