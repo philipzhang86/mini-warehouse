@@ -1,1 +1,33 @@
-<p>delete-client works!</p>
+<div class="delete-client">
+  <h2>Delete Client</h2>
+  <form #searchForm="ngForm" (ngSubmit)="searchClient(searchForm)">
+    <div>
+      <label for="id">Search By ID:</label>
+      <input type="text" id="id" [(ngModel)]="search.id" name="id" placeholder="Client ID"
+        [disabled]="search.username.length > 0">
+    </div>
+    <div>
+      <label for="username">Search By Username:</label>
+      <input type="text" id="username" [(ngModel)]="search.username" name="username" placeholder="Username"
+        [disabled]="search.id.length > 0">
+    </div>
+    <button type="submit">Search</button>
+  </form>
+
+  <div *ngIf="client">
+    <h3>Client Details:</h3>
+    <p>ID: {{client.id}}</p>
+    <p>Username: {{client.username}}</p>
+    <p>Email: {{client.email}}</p>
+    <p>Company Name: {{client.companyName}}</p>
+    <p>Phone: {{client.phone}}</p>
+    <p>Address: {{client.address}}</p>
+    <p>City: {{client.city}}</p>
+    <p>State: {{client.state}}</p>
+    <p>Country: {{client.country}}</p>
+    <!-- 删除按钮，只有当client对象存在时才显示 -->
+    <button *ngIf="client" (click)="deleteClient(client.id, client.username)">Delete Client</button>
+  </div>
+
+  <button (click)="goBack()">Back</button>
+</div>
