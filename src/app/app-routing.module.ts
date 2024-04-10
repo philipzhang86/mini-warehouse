@@ -21,17 +21,19 @@ const routes: Routes = [
   },
   {
     path: 'staff-dashboard', component: StaffDashboardComponent,
-    children: [{ path: 'staff-info', component: StaffInfoComponent }, {
-      path: 'client-management',
-      component: ClientManagementComponent,
-      children: [
-        { path: 'create-client', component: CreateClientComponent },
-        { path: 'display-client-info', component: DisplayClientInfoComponent },
-        { path: 'update-client', component: UpdateClientComponent },
-        { path: 'display-clients-list', component: DisplayClientsListComponent },
-        { path: 'delete-client', component: DeleteClientComponent }
-      ]
-    }]
+    children: [
+      { path: 'staff-info', component: StaffInfoComponent },
+      {
+        path: 'client-management', component: ClientManagementComponent,
+        children: [
+          { path: 'create-client', component: CreateClientComponent },
+          { path: 'display-client-info', component: DisplayClientInfoComponent },
+          { path: 'update-client', component: UpdateClientComponent },
+          { path: 'display-clients-list', component: DisplayClientsListComponent },
+          { path: 'delete-client', component: DeleteClientComponent }
+        ]
+      }
+    ]
   },
 ];
 

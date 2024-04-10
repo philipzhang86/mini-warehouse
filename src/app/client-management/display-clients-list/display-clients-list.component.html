@@ -1,1 +1,47 @@
-<p>display-clients-list works!</p>
+<div class="display-clients-list">
+  <h2>Display Clients List</h2>
+
+  <form #displayForm="ngForm" (ngSubmit)="showClientsList()">
+    <div>
+      <label><input type="checkbox" [(ngModel)]="fields.id" name="id"> ID</label>
+      <label><input type="checkbox" [(ngModel)]="fields.username" name="username"> Username</label>
+      <label><input type="checkbox" [(ngModel)]="fields.email" name="email"> Email</label>
+      <label><input type="checkbox" [(ngModel)]="fields.companyName" name="companyName"> Company Name</label>
+      <label><input type="checkbox" [(ngModel)]="fields.phone" name="phone"> Phone</label>
+      <label><input type="checkbox" [(ngModel)]="fields.address" name="address"> Address</label>
+      <label><input type="checkbox" [(ngModel)]="fields.city" name="city"> City</label>
+      <label><input type="checkbox" [(ngModel)]="fields.state" name="state"> State</label>
+      <label><input type="checkbox" [(ngModel)]="fields.country" name="country"> Country</label>
+    </div>
+    <button type="submit">Show</button>
+  </form>
+
+  <br>
+  <br>
+  <table *ngIf="clients.length > 0">
+    <tr>
+      <th *ngIf="fields.id">ID</th>
+      <th *ngIf="fields.username">Username</th>
+      <th *ngIf="fields.email">Email</th>
+      <th *ngIf="fields.companyName">Company Name</th>
+      <th *ngIf="fields.phone">Phone</th>
+      <th *ngIf="fields.address">Address</th>
+      <th *ngIf="fields.city">City</th>
+      <th *ngIf="fields.state">State</th>
+      <th *ngIf="fields.country">Country</th>
+    </tr>
+    <tr *ngFor="let client of clients">
+      <td *ngIf="fields.id">{{client.id}}</td>
+      <td *ngIf="fields.username">{{client.username}}</td>
+      <td *ngIf="fields.email">{{client.email}}</td>
+      <td *ngIf="fields.companyName">{{client.companyName}}</td>
+      <td *ngIf="fields.phone">{{client.phone}}</td>
+      <td *ngIf="fields.address">{{client.address}}</td>
+      <td *ngIf="fields.city">{{client.city}}</td>
+      <td *ngIf="fields.state">{{client.state}}</td>
+      <td *ngIf="fields.country">{{client.country}}</td>
+    </tr>
+  </table>
+
+  <button (click)="goBack()">Back</button>
+</div>
