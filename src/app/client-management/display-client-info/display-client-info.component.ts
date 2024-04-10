@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Location } from '@angular/common';
 import { AuthService } from 'src/app/auth.service';
+import { Router } from '@angular/router'; // 引入Router服务
 
 @Component({
   selector: 'app-display-client-info',
@@ -17,7 +17,7 @@ export class DisplayClientInfoComponent implements OnInit {
 
   constructor(
     private http: HttpClient,
-    private location: Location,
+    private router: Router, // 注入Router
     private authService: AuthService
   ) { }
 
@@ -48,6 +48,6 @@ export class DisplayClientInfoComponent implements OnInit {
   }
 
   goBack(): void {
-    this.location.back();
+    this.router.navigate(['/staff-dashboard/client-management']);
   }
 }

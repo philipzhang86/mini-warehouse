@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Location } from '@angular/common';
 import { AuthService } from 'src/app/auth.service';
+import { Router } from '@angular/router'; // 引入Router服务
 
 @Component({
   selector: 'app-create-client',
@@ -23,7 +24,11 @@ export class CreateClientComponent implements OnInit {
     country: ''
   };
 
-  constructor(private http: HttpClient, private location: Location, private authService: AuthService) { }
+  constructor(
+    private http: HttpClient,
+    private router: Router, // 注入Router
+    private authService: AuthService
+  ) { }
 
   ngOnInit(): void {
     console.log("create client");
@@ -47,6 +52,6 @@ export class CreateClientComponent implements OnInit {
 
 
   goBack(): void {
-    this.location.back();
+    this.router.navigate(['/staff-dashboard/client-management']);
   }
 }

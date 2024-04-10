@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
+import { Router } from '@angular/router'; // 引入Router服务
 
 @Component({
   selector: 'app-client-management',
@@ -8,12 +9,12 @@ import { Location } from '@angular/common';
 })
 export class ClientManagementComponent implements OnInit {
 
-  constructor(private location: Location) { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
 
   goBack(): void {
-    this.location.back();
+    this.router.navigate(['/staff-dashboard']);
   }
 }
