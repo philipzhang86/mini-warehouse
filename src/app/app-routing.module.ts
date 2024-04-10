@@ -9,6 +9,8 @@ import { CreateClientComponent } from './client-management/create-client/create-
 import { ClientManagementComponent } from './client-management/client-management.component';
 import { DisplayClientInfoComponent } from './client-management/display-client-info/display-client-info.component';
 import { UpdateClientComponent } from './client-management/update-client/update-client.component';
+import { DisplayClientsListComponent } from './client-management/display-clients-list/display-clients-list.component';
+import { DeleteClientComponent } from './client-management/delete-client/delete-client.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -25,7 +27,9 @@ const routes: Routes = [
       children: [
         { path: 'create-client', component: CreateClientComponent },
         { path: 'display-client-info', component: DisplayClientInfoComponent },
-        { path: 'update-client', component: UpdateClientComponent }
+        { path: 'update-client', component: UpdateClientComponent },
+        { path: 'display-clients-list', component: DisplayClientsListComponent },
+        { path: 'delete-client', component: DeleteClientComponent }
       ]
     }]
   },

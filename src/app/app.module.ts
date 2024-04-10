@@ -15,6 +15,8 @@ import { ClientManagementComponent } from './client-management/client-management
 import { CreateClientComponent } from './client-management/create-client/create-client.component';
 import { DisplayClientInfoComponent } from './client-management/display-client-info/display-client-info.component';
 import { UpdateClientComponent } from './client-management/update-client/update-client.component';
+import { DisplayClientsListComponent } from './client-management/display-clients-list/display-clients-list.component';
+import { DeleteClientComponent } from './client-management/delete-client/delete-client.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { UpdateClientComponent } from './client-management/update-client/update-
     ClientManagementComponent,
     CreateClientComponent,
     DisplayClientInfoComponent,
-    UpdateClientComponent
+    UpdateClientComponent,
+    DisplayClientsListComponent,
+    DeleteClientComponent
   ],
   imports: [
     BrowserModule,
