@@ -1,1 +1,32 @@
-<p>display-client-info works!</p>
+<div class="display-client-info">
+  <h2>Display Client Info</h2>
+  <!-- 使用模板变量searchForm来获取表单状态，并在提交时调用searchClient方法 -->
+  <form #searchForm="ngForm" (ngSubmit)="searchClient(searchForm)">
+    <div>
+      <label for="id">Search By ID:</label>
+      <!-- 当search.username有值时，禁用ID输入框 -->
+      <input type="text" id="id" [(ngModel)]="search.id" name="id" placeholder="Client ID"
+        [disabled]="search.username.length > 0">
+    </div>
+    <div>
+      <label for="username">Search By Username:</label>
+      <!-- 当search.id有值时，禁用Username输入框 -->
+      <input type="text" id="username" [(ngModel)]="search.username" name="username" placeholder="Username"
+        [disabled]="search.id.length > 0">
+    </div>
+    <button type="submit">Search</button>
+  </form>
+  <!-- 显示搜索结果，*ngIf用于判断client对象是否存在 -->
+  <div *ngIf="client">
+    <h3>Client Details:</h3>
+    <p>Username: {{client.username}}</p>
+    <p>Email: {{client.email}}</p>
+    <p>Company Name: {{client.companyName}}</p>
+    <p>Phone: {{client.phone}}</p>
+    <p>Address: {{client.address}}</p>
+    <p>City: {{client.city}}</p>
+    <p>State: {{client.state}}</p>
+    <p>Country: {{client.country}}</p>
+  </div>
+  <button (click)="goBack()">Back</button>
+</div>
