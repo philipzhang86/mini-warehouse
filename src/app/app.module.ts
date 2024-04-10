@@ -13,6 +13,7 @@ import { ClientInfoComponent } from './client-info/client-info.component';
 import { StaffInfoComponent } from './staff-info/staff-info.component';
 import { ClientManagementComponent } from './client-management/client-management.component';
 import { CreateClientComponent } from './client-management/create-client/create-client.component';
+import { DisplayClientInfoComponent } from './client-management/display-client-info/display-client-info.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { CreateClientComponent } from './client-management/create-client/create-
     ClientInfoComponent,
     StaffInfoComponent,
     ClientManagementComponent,
-    CreateClientComponent
+    CreateClientComponent,
+    DisplayClientInfoComponent
   ],
   imports: [
     BrowserModule,

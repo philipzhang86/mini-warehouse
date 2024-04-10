@@ -7,6 +7,7 @@ import { ClientInfoComponent } from './client-info/client-info.component';
 import { StaffInfoComponent } from './staff-info/staff-info.component';
 import { CreateClientComponent } from './client-management/create-client/create-client.component';
 import { ClientManagementComponent } from './client-management/client-management.component';
+import { DisplayClientInfoComponent } from './client-management/display-client-info/display-client-info.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -20,10 +21,9 @@ const routes: Routes = [
     children: [{ path: 'staff-info', component: StaffInfoComponent }, {
       path: 'client-management',
       component: ClientManagementComponent,
-      children: [{
-        path: 'create-client',
-        component: CreateClientComponent
-      }
+      children: [
+        { path: 'create-client', component: CreateClientComponent },
+        { path: 'display-client-info', component: DisplayClientInfoComponent }
       ]
     }]
   },
