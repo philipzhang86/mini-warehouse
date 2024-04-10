@@ -14,6 +14,7 @@ import { StaffInfoComponent } from './staff-info/staff-info.component';
 import { ClientManagementComponent } from './client-management/client-management.component';
 import { CreateClientComponent } from './client-management/create-client/create-client.component';
 import { DisplayClientInfoComponent } from './client-management/display-client-info/display-client-info.component';
+import { UpdateClientComponent } from './client-management/update-client/update-client.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { DisplayClientInfoComponent } from './client-management/display-client-i
     StaffInfoComponent,
     ClientManagementComponent,
     CreateClientComponent,
-    DisplayClientInfoComponent
+    DisplayClientInfoComponent,
+    UpdateClientComponent
   ],
   imports: [
     BrowserModule,
