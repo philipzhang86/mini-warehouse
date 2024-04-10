@@ -11,6 +11,8 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './auth.interceptor';
 import { ClientInfoComponent } from './client-info/client-info.component';
 import { StaffInfoComponent } from './staff-info/staff-info.component';
+import { ClientManagementComponent } from './client-management/client-management.component';
+import { CreateClientComponent } from './client-management/create-client/create-client.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { StaffInfoComponent } from './staff-info/staff-info.component';
     ClientDashboardComponent,
     StaffDashboardComponent,
     ClientInfoComponent,
-    StaffInfoComponent
+    StaffInfoComponent,
+    ClientManagementComponent,
+    CreateClientComponent
   ],
   imports: [
     BrowserModule,
