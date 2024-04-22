@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AuthService } from '../auth.service'; // 确保你有AuthService来获取token
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-client-info',
@@ -12,7 +13,7 @@ export class ClientInfoComponent implements OnInit {
   client: any = {}; // 存储客户信息
   role: string | null = this.authService.getRole(); // 获取角色
 
-  constructor(private http: HttpClient, private authService: AuthService) { }
+  constructor(private http: HttpClient, private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
     this.getClientInfo(); // 页面初始化时获取客户信息
@@ -28,5 +29,9 @@ export class ClientInfoComponent implements OnInit {
     const token = this.authService.getToken();
     this.http.put('http://localhost:9080/user-service/api/clients/', this.client, { headers: new HttpHeaders({ 'Authorization': `Bearer ${token}` }) })
       .subscribe(() => alert('Client info updated'), error => console.error('Error updating client info', error));
+  }
+
+  goBack(): void {
+    this.router.navigate(['/client-dashboard'])
   }
 }
