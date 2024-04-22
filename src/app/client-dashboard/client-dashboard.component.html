@@ -2,19 +2,19 @@
   <div class="sidebar">
     <ul>
       <li routerLink="/client-dashboard/client-info">Client Info</li>
-      <li (click)="selectSection('asn')">ASN</li>
+      <!-- 绝对路径 因为是从根路径导航过来的 -->
+      <li routerLink="/client-dashboard/asn-operations-center">ASN Operations Center</li>
       <li (click)="selectSection('oms')">OMS</li>
     </ul>
   </div>
   <div class="main-content">
-    <router-outlet></router-outlet>
-    <ng-container *ngIf="selectedSection === 'asn'">
-      <!-- ASN Section -->
-      <p>ASN section coming soon...</p>
-    </ng-container>
+
+
     <ng-container *ngIf="selectedSection === 'oms'">
       <!-- OMS Section -->
       <p>OMS section coming soon...</p>
     </ng-container>
   </div>
+
+  <router-outlet></router-outlet>
 </div>

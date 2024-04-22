@@ -1,3 +1,4 @@
+import { AsnOperationsCenterComponent } from './asn-operations-center/asn-operations-center.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
@@ -11,13 +12,22 @@ import { DisplayClientInfoComponent } from './client-management/display-client-i
 import { UpdateClientComponent } from './client-management/update-client/update-client.component';
 import { DisplayClientsListComponent } from './client-management/display-clients-list/display-clients-list.component';
 import { DeleteClientComponent } from './client-management/delete-client/delete-client.component';
+import { ProductDashboardComponent } from './product-dashboard/product-dashboard.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   {
     path: 'client-dashboard', component: ClientDashboardComponent,
-    children: [{ path: 'client-info', component: ClientInfoComponent }]
+    children: [
+      { path: 'client-info', component: ClientInfoComponent },
+      {
+        path: 'asn-operations-center', component: AsnOperationsCenterComponent,
+        children: [
+          { path: 'product-dashboard', component: ProductDashboardComponent }
+        ]
+      }
+    ]
   },
   {
     path: 'staff-dashboard', component: StaffDashboardComponent,
