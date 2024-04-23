@@ -1,3 +1,4 @@
+// Purpose: This file contains the routing information for the application. It contains the path for each component in the application.
 import { AsnOperationsCenterComponent } from './asn-operations-center/asn-operations-center.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -15,6 +16,7 @@ import { DeleteClientComponent } from './client-management/delete-client/delete-
 import { ProductDashboardComponent } from './product-dashboard/product-dashboard.component';
 import { CreateProductComponent } from './product-dashboard/create-product/create-product.component';
 import { DisplayProductInfoComponent } from './product-dashboard/display-product-info/display-product-info.component';
+import { DisplayProductListComponent } from './product-dashboard/display-product-list/display-product-list.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -30,7 +32,8 @@ const routes: Routes = [
             path: 'product-dashboard', component: ProductDashboardComponent,
             children: [
               { path: 'create-product', component: CreateProductComponent },
-              { path: 'display-product-info', component: DisplayProductInfoComponent }
+              { path: 'display-product-info', component: DisplayProductInfoComponent },
+              { path: 'display-product-list', component: DisplayProductListComponent }
             ]
 
           }
