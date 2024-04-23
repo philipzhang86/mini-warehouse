@@ -20,6 +20,8 @@ import { DeleteClientComponent } from './client-management/delete-client/delete-
 import { AsnOperationsCenterComponent } from './asn-operations-center/asn-operations-center.component';
 import { ProductDashboardComponent } from './product-dashboard/product-dashboard.component';
 import { CreateProductComponent } from './product-dashboard/create-product/create-product.component';
+import { DisplayProductListComponent } from './product-dashboard/display-product-list/display-product-list.component';
+import { DisplayProductInfoComponent } from './product-dashboard/display-product-info/display-product-info.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,9 @@ import { CreateProductComponent } from './product-dashboard/create-product/creat
     DeleteClientComponent,
     AsnOperationsCenterComponent,
     ProductDashboardComponent,
-    CreateProductComponent
+    CreateProductComponent,
+    DisplayProductListComponent,
+    DisplayProductInfoComponent
   ],
   imports: [
     BrowserModule,

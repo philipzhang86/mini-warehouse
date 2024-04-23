@@ -14,6 +14,7 @@ import { DisplayClientsListComponent } from './client-management/display-clients
 import { DeleteClientComponent } from './client-management/delete-client/delete-client.component';
 import { ProductDashboardComponent } from './product-dashboard/product-dashboard.component';
 import { CreateProductComponent } from './product-dashboard/create-product/create-product.component';
+import { DisplayProductInfoComponent } from './product-dashboard/display-product-info/display-product-info.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -28,7 +29,8 @@ const routes: Routes = [
           {
             path: 'product-dashboard', component: ProductDashboardComponent,
             children: [
-              { path: 'create-product', component: CreateProductComponent }
+              { path: 'create-product', component: CreateProductComponent },
+              { path: 'display-product-info', component: DisplayProductInfoComponent }
             ]
 
           }
