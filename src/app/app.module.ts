@@ -19,6 +19,7 @@ import { DisplayClientsListComponent } from './client-management/display-clients
 import { DeleteClientComponent } from './client-management/delete-client/delete-client.component';
 import { AsnOperationsCenterComponent } from './asn-operations-center/asn-operations-center.component';
 import { ProductDashboardComponent } from './product-dashboard/product-dashboard.component';
+import { CreateProductComponent } from './product-dashboard/create-product/create-product.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { ProductDashboardComponent } from './product-dashboard/product-dashboard
     DisplayClientsListComponent,
     DeleteClientComponent,
     AsnOperationsCenterComponent,
-    ProductDashboardComponent
+    ProductDashboardComponent,
+    CreateProductComponent
   ],
   imports: [
     BrowserModule,

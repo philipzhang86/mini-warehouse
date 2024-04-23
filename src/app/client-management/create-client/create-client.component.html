@@ -1,17 +1,19 @@
 <div class="create-client">
   <h2>Create Client</h2>
-  <form (ngSubmit)="createClient()">
-    <input type="text" [(ngModel)]="client.username" name="username" placeholder="Username" required>
-    <input type="password" [(ngModel)]="client.password" name="password" placeholder="Password" required>
-    <input type="email" [(ngModel)]="client.email" name="email" placeholder="Email" required>
-    <input type="text" [(ngModel)]="client.companyName" name="companyName" placeholder="Company Name" required>
-    <input type="text" [(ngModel)]="client.areaCode" name="areaCode" placeholder="Area Code" required>
-    <input type="text" [(ngModel)]="client.phone" name="phone" placeholder="Phone" required>
-    <input type="text" [(ngModel)]="client.address" name="address" placeholder="Address" required>
-    <input type="text" [(ngModel)]="client.city" name="city" placeholder="City" required>
-    <input type="text" [(ngModel)]="client.state" name="state" placeholder="State" required>
-    <input type="text" [(ngModel)]="client.country" name="country" placeholder="Country" required>
-    <button type="submit">Create Client</button>
+  <form (ngSubmit)="form.valid &&createClient()" #form="ngForm">
+    <input type="text" [(ngModel)]="client.username" name="username" placeholder="Username" required ngModel
+      #username="ngModel">
+    <input type="password" [(ngModel)]="client.password" name="password" placeholder="Password" required
+      #password="ngModel">
+    <input type="email" [(ngModel)]="client.email" name="email" placeholder="Email" ngModel>
+    <input type="text" [(ngModel)]="client.companyName" name="companyName" placeholder="Company Name" ngModel>
+    <input type="text" [(ngModel)]="client.areaCode" name="areaCode" placeholder="Area Code" ngModel>
+    <input type="text" [(ngModel)]="client.phone" name="phone" placeholder="Phone" ngModel>
+    <input type="text" [(ngModel)]="client.address" name="address" placeholder="Address" ngModel>
+    <input type="text" [(ngModel)]="client.city" name="city" placeholder="City" ngModel>
+    <input type="text" [(ngModel)]="client.state" name="state" placeholder="State" ngModel>
+    <input type="text" [(ngModel)]="client.country" name="country" placeholder="Country" ngModel>
+    <button type="submit" [disabled]="!form.valid">Create Client</button>
   </form>
   <button (click)="goBack()">Back</button>
   <router-outlet></router-outlet>

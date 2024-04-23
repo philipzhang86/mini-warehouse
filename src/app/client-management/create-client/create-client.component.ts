@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Location } from '@angular/common';
 import { AuthService } from 'src/app/auth.service';
 import { Router } from '@angular/router'; // 引入Router服务
 

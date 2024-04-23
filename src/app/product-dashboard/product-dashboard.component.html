@@ -1,1 +1,8 @@
-<p>product-dashboard works!</p>
+<div class="product-dashboard">
+  <h2>Product Management</h2>
+  <ul>
+    <li routerLink="create-product">Create Product</li>
+  </ul>
+  <button (click)="goBack()">Back</button>
+  <router-outlet></router-outlet>
+</div>

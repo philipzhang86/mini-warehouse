@@ -13,6 +13,7 @@ import { UpdateClientComponent } from './client-management/update-client/update-
 import { DisplayClientsListComponent } from './client-management/display-clients-list/display-clients-list.component';
 import { DeleteClientComponent } from './client-management/delete-client/delete-client.component';
 import { ProductDashboardComponent } from './product-dashboard/product-dashboard.component';
+import { CreateProductComponent } from './product-dashboard/create-product/create-product.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -24,7 +25,13 @@ const routes: Routes = [
       {
         path: 'asn-operations-center', component: AsnOperationsCenterComponent,
         children: [
-          { path: 'product-dashboard', component: ProductDashboardComponent }
+          {
+            path: 'product-dashboard', component: ProductDashboardComponent,
+            children: [
+              { path: 'create-product', component: CreateProductComponent }
+            ]
+
+          }
         ]
       }
     ]

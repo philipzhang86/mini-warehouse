@@ -1,0 +1,31 @@
+<div>
+  <p>create-product works!</p>
+
+  <form (ngSubmit)="form.valid && createProduct()" #form="ngForm">
+    <!-- Product Name -->
+    <input type="text" [(ngModel)]="product.name" name="name" placeholder="Product Name" required ngModel
+      #name="ngModel">
+
+    <!-- SKU -->
+    <input type="text" [(ngModel)]="product.sku" name="sku" placeholder="SKU" required ngModel #sku="ngModel">
+
+    <!-- Currency -->
+    <input type="text" [(ngModel)]="product.currency" name="currency" placeholder="Currency" required ngModel
+      #currency="ngModel">
+
+    <!-- Selling Price -->
+    <input type="text" [(ngModel)]="product.sellingPrice" name="sellingPrice" placeholder="Selling Price" required
+      ngModel #sellingPrice="ngModel" pattern="^\d+(\.\d{1,2})?$">
+
+    <!-- Short Description -->
+    <input type="text" [(ngModel)]="product.shortDescription" name="shortDescription" placeholder="Short Description"
+      ngModel #shortDescription="ngModel">
+
+    <!-- Submit Button -->
+    <button type="submit" [disabled]="!form.valid">Create Product</button>
+  </form>
+
+
+  <button (click)="goBack()">Back</button>
+  <router-outlet></router-outlet>
+</div>
