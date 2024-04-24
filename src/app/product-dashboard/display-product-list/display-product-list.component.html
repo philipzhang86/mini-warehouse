@@ -1,4 +1,28 @@
-<p>display-product-list works!</p>
+<div class="display-product-list">
+  <h2>Product List</h2>
+  <table *ngIf="products.length > 0">
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Client ID</th>
+      <th>SKU</th>
+      <th>Currency</th>
+      <th>Selling Price</th>
+      <th>Short Description</th>
+    </tr>
+    <tr *ngFor="let product of products">
+      <td>{{product.id}}</td>
+      <td>{{product.name}}</td>
+      <td>{{product.clientId}}</td>
+      <td>{{product.sku}}</td>
+      <td>{{product.currency}}</td>
+      <td>{{product.sellingPrice}}</td>
+      <td>{{product.shortDescription}}</td>
+    </tr>
+  </table>
 
-<button (click)="goBack()">Back</button>
-<router-outlet></router-outlet>
+  <!--<p *ngIf="products.length === 0">No products found.</p>-->
+  <button (click)="goBack()">Back</button>
+
+  <router-outlet></router-outlet>
+</div>

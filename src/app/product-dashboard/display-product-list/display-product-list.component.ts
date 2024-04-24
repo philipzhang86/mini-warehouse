@@ -9,6 +9,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   styleUrls: ['./display-product-list.component.scss']
 })
 export class DisplayProductListComponent implements OnInit {
+  products: any[] = [];
 
   constructor(
     private router: Router,
@@ -17,6 +18,21 @@ export class DisplayProductListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    console.log('DisplayProductListComponent.ngOnInit() called');
+    this.loadProducts();
+  }
+
+  loadProducts(): void {
+    const token = this.authService.getToken();
+    this.http.get<any[]>('http://localhost:9081/asn-service/api/clients/products/my-products-list', {
+      headers: new HttpHeaders({
+        'Authorization': `Bearer ${token}`
+      })
+    }).subscribe(data => {
+      this.products = data; // 将获取的数据存储到products数组中
+    }, error => {
+      console.error('Error fetching products', error);
+    });
   }
 
   goBack(): void {
