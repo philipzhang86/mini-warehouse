@@ -1,4 +1,14 @@
-<p>create-asn works!</p>
+<div>
+  <p>Create ASN</p>
+  <form (ngSubmit)="form.valid && createAsn()" #form="ngForm">
+    <!-- Expected Arrival Time -->
+    <input type="datetime-local" [(ngModel)]="asn.expectedArrivalTime" name="expectedArrivalTime"
+      placeholder="Expected Arrival Time" required ngModel #expectedArrivalTime="ngModel">
 
-<button (click)="goBack()">Back</button>
-<router-outlet></router-outlet>
+    <!-- Submit Button -->
+    <button type="submit" [disabled]="!form.valid">Create ASN</button>
+  </form>
+
+  <button (click)="goBack()">Back</button>
+  <router-outlet></router-outlet>
+</div>

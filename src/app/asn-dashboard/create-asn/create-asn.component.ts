@@ -10,6 +10,11 @@ import { AuthService } from 'src/app/auth.service';
 })
 export class CreateAsnComponent implements OnInit {
 
+  asn = {
+    expectedArrivalTime: '', //!
+    status: 1
+  };
+
   constructor(
     private http: HttpClient,
     private router: Router,
@@ -17,6 +22,22 @@ export class CreateAsnComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    console.log("create asn");
+  }
+
+  createAsn(): void {
+    const token = this.authService.getToken();
+    this.http.post('http://localhost:9081/asn-service/api/clients/asns/', this.asn, {
+      headers: new HttpHeaders({
+        'Authorization': `Bearer ${token}`
+      })
+    }).subscribe(() => {
+      alert('Asn created successfully');
+      this.goBack();
+    }, error => {
+      console.error('Error creating asn', error);
+      alert('Failed to create asn' + error.message);
+    });
   }
 
   goBack(): void {
