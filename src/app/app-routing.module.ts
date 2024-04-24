@@ -20,6 +20,7 @@ import { DisplayProductListComponent } from './product-dashboard/display-product
 import { UpdateProductComponent } from './product-dashboard/update-product/update-product.component';
 import { DeleteProductComponent } from './product-dashboard/delete-product/delete-product.component';
 import { AsnDashboardComponent } from './asn-dashboard/asn-dashboard.component';
+import { CreateAsnComponent } from './asn-dashboard/create-asn/create-asn.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -42,7 +43,10 @@ const routes: Routes = [
             ]
           },
           {
-            path: 'asn-dashboard', component: AsnDashboardComponent
+            path: 'asn-dashboard', component: AsnDashboardComponent,
+            children: [
+              { path: 'create-asn', component: CreateAsnComponent }
+            ]
           }
         ]
       }

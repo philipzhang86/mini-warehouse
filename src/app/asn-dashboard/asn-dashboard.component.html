@@ -1,3 +1,9 @@
-<p>asn-dashboard works!</p>
-<button (click)="goBack()">Back</button>
-<router-outlet></router-outlet>
+<div class="asn-dashboard">
+  <h2>ASN Management</h2>
+  <ul>
+    <li routerLink="create-asn">Create ASN</li>
+  </ul>
+
+  <button (click)="goBack()">Back</button>
+  <router-outlet></router-outlet>
+</div>
