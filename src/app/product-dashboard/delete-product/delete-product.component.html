@@ -1,3 +1,36 @@
-<p>delete-product works!</p>
-<button (click)="goBack()">Back</button>
-<router-outlet></router-outlet>
+<div class="delete-product">
+  <h2>Delete Product</h2>
+  <form #searchForm="ngForm" (ngSubmit)="searchProduct(searchForm)">
+    <div>
+      <label for="id">Search By ID:</label>
+      <input type="text" id="id" [(ngModel)]="search.id" name="id" placeholder="Product ID"
+        [disabled]="search.name.length > 0 || search.sku.length > 0">
+    </div>
+    <div>
+      <label for="name">Search By Name:</label>
+      <input type="text" id="name" [(ngModel)]="search.name" name="name" placeholder="Product Name"
+        [disabled]="search.id.length > 0 || search.sku.length > 0">
+    </div>
+    <div>
+      <label for="sku">Search By SKU:</label>
+      <input type="text" id="sku" [(ngModel)]="search.sku" name="sku" placeholder="SKU"
+        [disabled]="search.id.length > 0 || search.name.length > 0">
+    </div>
+    <button type="submit">Search</button>
+  </form>
+
+  <div *ngIf="product">
+    <h3>Product Details:</h3>
+    <p>ID: {{product.id}}</p>
+    <p>Name: {{product.name}}</p>
+    <p>Client ID: {{product.clientId}}</p>
+    <p>SKU: {{product.sku}}</p>
+    <p>Currency: {{product.currency}}</p>
+    <p>Selling Price: {{product.sellingPrice}}</p>
+    <p>Short Description: {{product.shortDescription}}</p>
+    <button *ngIf="product" (click)="deleteProduct(product.id)">Delete Product</button>
+  </div>
+
+  <button (click)="goBack()">Back</button>
+  <router-outlet></router-outlet>
+</div>
