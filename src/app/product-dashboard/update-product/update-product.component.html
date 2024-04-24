@@ -1,3 +1,59 @@
-<p>update-product works!</p>
-<button (click)="goBack()">Back</button>
-<router-outlet></router-outlet>
+<div class="display-product-info">
+  <h2>Update Product Info</h2>
+
+  <!-- Search form -->
+  <form #searchForm="ngForm" (ngSubmit)="searchProduct(searchForm)">
+    <div>
+      <label for="id">Search By ID:</label>
+      <input type="text" id="id" [(ngModel)]="search.id" name="id" placeholder="Product ID"
+        [disabled]="search.name.length > 0 || search.sku.length > 0">
+    </div>
+    <div>
+      <label for="name">Search By Name:</label>
+      <input type="text" id="name" [(ngModel)]="search.name" name="name" placeholder="Product Name"
+        [disabled]="search.id.length > 0 || search.sku.length > 0">
+    </div>
+    <div>
+      <label for="sku">Search By SKU:</label>
+      <input type="text" id="sku" [(ngModel)]="search.sku" name="sku" placeholder="SKU"
+        [disabled]="search.id.length > 0 || search.name.length > 0">
+    </div>
+    <button type="submit">Search</button>
+  </form>
+  <br>
+
+  <!-- Update form -->
+  <form (ngSubmit)="updateProduct()">
+    <div>
+      <label>ID:</label>
+      <input type="text" [(ngModel)]="product.id" name="id" disabled>
+    </div>
+    <div>
+      <label>Name:</label>
+      <input type="text" [(ngModel)]="product.name" name="name" disabled>
+    </div>
+    <div>
+      <label>SKU:</label>
+      <input type="text" [(ngModel)]="product.sku" name="sku" disabled>
+    </div>
+    <div>
+      <label>Client ID:</label>
+      <input type="text" [(ngModel)]="product.clientId" name="clientId" disabled>
+    </div>
+    <div>
+      <label>Currency:</label>
+      <input type="text" [(ngModel)]="product.currency" name="currency">
+    </div>
+    <div>
+      <label>Selling Price:</label>
+      <input type="text" [(ngModel)]="product.sellingPrice" name="sellingPrice">
+    </div>
+    <div>
+      <label>Short Description:</label>
+      <textarea [(ngModel)]="product.shortDescription" name="shortDescription"></textarea>
+    </div>
+    <button type="submit">Update Info</button>
+  </form>
+
+  <button (click)="goBack()">Back</button>
+</div>
