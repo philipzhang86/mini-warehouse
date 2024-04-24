@@ -22,6 +22,8 @@ import { ProductDashboardComponent } from './product-dashboard/product-dashboard
 import { CreateProductComponent } from './product-dashboard/create-product/create-product.component';
 import { DisplayProductListComponent } from './product-dashboard/display-product-list/display-product-list.component';
 import { DisplayProductInfoComponent } from './product-dashboard/display-product-info/display-product-info.component';
+import { UpdateProductComponent } from './product-dashboard/update-product/update-product.component';
+import { DeleteProductComponent } from './product-dashboard/delete-product/delete-product.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,9 @@ import { DisplayProductInfoComponent } from './product-dashboard/display-product
     ProductDashboardComponent,
     CreateProductComponent,
     DisplayProductListComponent,
-    DisplayProductInfoComponent
+    DisplayProductInfoComponent,
+    UpdateProductComponent,
+    DeleteProductComponent
   ],
   imports: [
     BrowserModule,

@@ -17,6 +17,8 @@ import { ProductDashboardComponent } from './product-dashboard/product-dashboard
 import { CreateProductComponent } from './product-dashboard/create-product/create-product.component';
 import { DisplayProductInfoComponent } from './product-dashboard/display-product-info/display-product-info.component';
 import { DisplayProductListComponent } from './product-dashboard/display-product-list/display-product-list.component';
+import { UpdateProductComponent } from './product-dashboard/update-product/update-product.component';
+import { DeleteProductComponent } from './product-dashboard/delete-product/delete-product.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -33,7 +35,9 @@ const routes: Routes = [
             children: [
               { path: 'create-product', component: CreateProductComponent },
               { path: 'display-product-info', component: DisplayProductInfoComponent },
-              { path: 'display-product-list', component: DisplayProductListComponent }
+              { path: 'display-product-list', component: DisplayProductListComponent },
+              { path: 'update-product', component: UpdateProductComponent },
+              { path: 'delete-product', component: DeleteProductComponent }
             ]
 
           }

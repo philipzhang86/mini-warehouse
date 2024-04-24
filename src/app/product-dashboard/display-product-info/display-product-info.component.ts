@@ -16,8 +16,6 @@ export class DisplayProductInfoComponent implements OnInit {
   };
   product: any;
 
-
-
   constructor(
     private router: Router,
     private http: HttpClient,
