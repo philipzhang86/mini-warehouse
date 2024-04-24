@@ -19,6 +19,7 @@ import { DisplayProductInfoComponent } from './product-dashboard/display-product
 import { DisplayProductListComponent } from './product-dashboard/display-product-list/display-product-list.component';
 import { UpdateProductComponent } from './product-dashboard/update-product/update-product.component';
 import { DeleteProductComponent } from './product-dashboard/delete-product/delete-product.component';
+import { AsnDashboardComponent } from './asn-dashboard/asn-dashboard.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -39,7 +40,9 @@ const routes: Routes = [
               { path: 'update-product', component: UpdateProductComponent },
               { path: 'delete-product', component: DeleteProductComponent }
             ]
-
+          },
+          {
+            path: 'asn-dashboard', component: AsnDashboardComponent
           }
         ]
       }

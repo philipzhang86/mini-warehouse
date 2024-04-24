@@ -24,6 +24,7 @@ import { DisplayProductListComponent } from './product-dashboard/display-product
 import { DisplayProductInfoComponent } from './product-dashboard/display-product-info/display-product-info.component';
 import { UpdateProductComponent } from './product-dashboard/update-product/update-product.component';
 import { DeleteProductComponent } from './product-dashboard/delete-product/delete-product.component';
+import { AsnDashboardComponent } from './asn-dashboard/asn-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { DeleteProductComponent } from './product-dashboard/delete-product/delet
     DisplayProductListComponent,
     DisplayProductInfoComponent,
     UpdateProductComponent,
-    DeleteProductComponent
+    DeleteProductComponent,
+    AsnDashboardComponent
   ],
   imports: [
     BrowserModule,
