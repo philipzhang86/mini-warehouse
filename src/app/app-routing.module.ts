@@ -21,6 +21,7 @@ import { UpdateProductComponent } from './product-dashboard/update-product/updat
 import { DeleteProductComponent } from './product-dashboard/delete-product/delete-product.component';
 import { AsnDashboardComponent } from './asn-dashboard/asn-dashboard.component';
 import { CreateAsnComponent } from './asn-dashboard/create-asn/create-asn.component';
+import { UpdateAsnComponent } from './asn-dashboard/update-asn/update-asn.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -45,7 +46,8 @@ const routes: Routes = [
           {
             path: 'asn-dashboard', component: AsnDashboardComponent,
             children: [
-              { path: 'create-asn', component: CreateAsnComponent }
+              { path: 'create-asn', component: CreateAsnComponent },
+              { path: 'update-asn', component: UpdateAsnComponent }
             ]
           }
         ]
