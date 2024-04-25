@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AuthService } from 'src/app/auth.service';
-import { FilterAsnPipe } from './filter-asn.pipe'; // Import the pipe
+
 
 
 @Component({
