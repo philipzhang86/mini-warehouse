@@ -1,3 +1,24 @@
-<p>update-asn works!</p>
-<button (click)="goBack()">Back</button>
-<router-outlet></router-outlet>
+<div class="update-asn-info">
+  <h2>Update ASN Info</h2>
+
+  <!-- Search form -->
+  <form #searchForm="ngForm" (ngSubmit)="searchAsn(searchForm)">
+    <div>
+      <label for="id">Search By ASN ID:</label>
+      <input type="text" id="id" [(ngModel)]="search.id" name="id" placeholder="ASN ID" required>
+    </div>
+    <button type="submit">Search</button>
+  </form>
+  <br>
+
+  <!-- Update form, only show if ASN has been loaded -->
+  <form *ngIf="asn && asn.id" (ngSubmit)="updateAsn()">
+    <div>
+      <label>Expected Arrival Time (UTC):</label>
+      <input type="datetime-local" [(ngModel)]="asn.expectedArrivalTime" name="expectedArrivalTime" required>
+    </div>
+    <button type="submit">Update Info</button>
+  </form>
+
+  <button (click)="goBack()">Back</button>
+</div>
