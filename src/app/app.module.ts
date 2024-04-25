@@ -28,6 +28,8 @@ import { AsnDashboardComponent } from './asn-dashboard/asn-dashboard.component';
 import { CreateAsnComponent } from './asn-dashboard/create-asn/create-asn.component';
 import { UpdateAsnComponent } from './asn-dashboard/update-asn/update-asn.component';
 import { DisplayAsnListComponent } from './asn-dashboard/display-asn-list/display-asn-list.component';
+import { FilterAsnPipe } from './asn-dashboard/display-asn-list/filter-asn.pipe'; // Import the pipe
+import { fileURLToPath } from 'url';
 
 @NgModule({
   declarations: [
@@ -53,7 +55,8 @@ import { DisplayAsnListComponent } from './asn-dashboard/display-asn-list/displa
     AsnDashboardComponent,
     CreateAsnComponent,
     UpdateAsnComponent,
-    DisplayAsnListComponent
+    DisplayAsnListComponent,
+    FilterAsnPipe
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,30 @@
+.display-asn-list {
+  table {
+    margin-bottom: 20px;
+    width: 100%;
+    border-collapse: collapse;
+
+    th,
+    td {
+      border: 1px solid black;
+      padding: 8px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+
+    tr:nth-child(odd) {
+      background-color: #f9f9f9;
+    }
+
+    tr:hover {
+      background-color: #e8e8e8;
+    }
+  }
+
+  button {
+    // 根据需要为返回按钮添加样式
+  }
+}

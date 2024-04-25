@@ -1,4 +1,33 @@
-<p>display-asn-list works!</p>
+<div class="display-asn-list">
+  <h2>Display ASN List</h2>
 
-<button (click)="goBack()">Back</button>
-<router-outlet></router-outlet>
+  <!-- Filter Options -->
+  <div>
+    <label><input type="radio" [(ngModel)]="filter.status" value="all" name="status"> All</label>
+    <label><input type="radio" [(ngModel)]="filter.status" value="1" name="status"> Pending Inbound</label>
+    <label><input type="radio" [(ngModel)]="filter.status" value="2" name="status"> Inbound</label>
+  </div>
+  <button (click)="showAsnList()">Show</button>
+
+  <br>
+  <br>
+
+  <!-- ASN Table -->
+  <table *ngIf="asns.length > 0">
+    <tr>
+      <th>ID</th>
+      <th>Client ID</th>
+      <th>Expected Arrival Time</th>
+      <th>Status</th>
+    </tr>
+    <tr *ngFor="let asn of asns | filterAsn:filter.status">
+      <td>{{ asn.id }}</td>
+      <td>{{ asn.clientId }}</td>
+      <td>{{ asn.expectedArrivalTime | date: 'short' }}</td>
+      <td>{{ asn.status === 1 ? 'Pending Inbound' : 'Inbound' }}</td>
+    </tr>
+  </table>
+  <p *ngIf="asns.length === 0">No ASNs found.</p>
+
+  <button (click)="goBack()">Back</button>
+</div>
