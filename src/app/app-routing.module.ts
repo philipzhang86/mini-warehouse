@@ -23,6 +23,8 @@ import { AsnDashboardComponent } from './asn-dashboard/asn-dashboard.component';
 import { CreateAsnComponent } from './asn-dashboard/create-asn/create-asn.component';
 import { UpdateAsnComponent } from './asn-dashboard/update-asn/update-asn.component';
 import { DisplayAsnListComponent } from './asn-dashboard/display-asn-list/display-asn-list.component';
+import { DeleteAsnComponent } from './asn-dashboard/delete-asn/delete-asn.component';
+import { DisplayAsnInfoComponent } from './asn-dashboard/display-asn-info/display-asn-info.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -49,7 +51,9 @@ const routes: Routes = [
             children: [
               { path: 'create-asn', component: CreateAsnComponent },
               { path: 'update-asn', component: UpdateAsnComponent },
-              { path: 'display-asn-list', component: DisplayAsnListComponent }
+              { path: 'display-asn-list', component: DisplayAsnListComponent },
+              { path: 'display-asn-info', component: DisplayAsnInfoComponent },
+              { path: 'delete-asn', component: DeleteAsnComponent }
             ]
           }
         ]
