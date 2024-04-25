@@ -1,1 +1,20 @@
-<p>delete-asn works!</p>
+<div class="delete-asn">
+  <h2>Delete ASN</h2>
+  <form (ngSubmit)="searchAsn()">
+    <div>
+      <label for="id">Search By ID:</label>
+      <input type="text" id="id" [(ngModel)]="search.id" name="id" placeholder="ASN ID">
+    </div>
+    <button type="submit">Search</button>
+  </form>
+
+  <div *ngIf="asn">
+    <h3>ASN Details:</h3>
+    <p>ID: {{ asn.id }}</p>
+    <p>Client ID: {{ asn.clientId }}</p>
+    <p>Expected Arrival Time: {{ asn.expectedArrivalTime | date: 'short' }}</p>
+    <button (click)="deleteAsn()">Delete ASN</button>
+  </div>
+
+  <button (click)="goBack()">Back</button>
+</div>

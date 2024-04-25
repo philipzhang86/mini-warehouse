@@ -28,8 +28,10 @@ export class DisplayAsnInfoComponent implements OnInit {
     const headers = new HttpHeaders({ 'Authorization': `Bearer ${token}` });
     this.http.get<any>(`http://localhost:9081/asn-service/api/clients/asns/by-id/${id}`, { headers }).subscribe(
       response => {
-        this.asn = response;
-        this.fetchAsnItems(id); // Fetch items when ASN is found
+        this.asn = {
+          ...response,
+          expectedArrivalTime: new Date(response.expectedArrivalTime).toISOString().slice(0, 16)  // Convert to UTC string and slice for consistency
+        };
       },
       error => {
         console.error('ASN not found', error);
