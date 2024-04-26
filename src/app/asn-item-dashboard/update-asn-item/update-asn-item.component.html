@@ -1,4 +1,38 @@
-<p>update-asn-item works!</p>
+<div class="update-asn-item">
+  <h2>Update ASN Item Info</h2>
 
-<button (click)="goBack()">Back</button>
-<router-outlet></router-outlet>
+  <!-- Search form for ASN Item ID or ASN ID and SKU -->
+  <form #searchForm="ngForm" (ngSubmit)="findAsnItem()">
+    <div>
+      <label for="id">Search By ASN Item ID:</label>
+      <input type="text" id="id" [(ngModel)]="searchAsnItem.id" name="id" placeholder="ASN Item ID"
+        [disabled]="searchAsnItem.asnId.length>0 || searchAsnItem.sku.length>0">
+    </div>
+    <div>
+      <label for="asnId">Search By ASN ID and SKU:</label>
+      <input type="text" id="asnId" [(ngModel)]="searchAsnItem.asnId" name="asnId" placeholder="ASN ID"
+        [disabled]="searchAsnItem.id.length > 0">
+      <input type="text" id="sku" [(ngModel)]="searchAsnItem.sku" name="sku" placeholder="SKU"
+        [disabled]="searchAsnItem.id.length > 0">
+    </div>
+    <button type="submit" [disabled]="!searchAsnItem.id && (!searchAsnItem.asnId || !searchAsnItem.sku)">Search</button>
+  </form>
+
+  <!-- Display ASN Item details if found -->
+  <div *ngIf="asnItem">
+    <h3>ASN Item Details:</h3>
+    <p>ASN Item ID: {{ asnItem.id }}</p>
+    <p>ASN ID: {{ asnItem.asnId }}</p>
+    <p>Product ID: {{ asnItem.productId }}</p>
+    <p>Product Name: {{ asnItem.asnItemName }}</p>
+    <p>SKU: {{ asnItem.skuId }}</p>
+    <form (ngSubmit)="updateAsnItem()">
+      <label for="quantity">Quantity:</label>
+      <input type="number" [(ngModel)]="asnItem.quantity" name="quantity" required>
+      <button type="submit">Update</button>
+    </form>
+  </div>
+
+  <button (click)="goBack()">Back</button>
+  <router-outlet></router-outlet>
+</div>
