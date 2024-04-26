@@ -9,6 +9,15 @@ import { AuthService } from 'src/app/auth.service';
   styleUrls: ['./create-asn-item.component.scss']
 })
 export class CreateAsnItemComponent implements OnInit {
+  asns: any[] = [];
+  products: any[] = [];
+  asnItem = {
+    asnId: '',
+    asnItemName: '',
+    productId: '',
+    skuId: '',
+    quantity: ''
+  };
 
   constructor(
     private http: HttpClient,
@@ -18,6 +27,53 @@ export class CreateAsnItemComponent implements OnInit {
 
   ngOnInit(): void {
     console.log("create asn item");
+    this.showAsnList();
+    this.showProducts();
+  }
+
+  createAsnItem(): void {
+    const token = this.authService.getToken();
+    this.http.post('http://localhost:9081/asn-service/api/clients/asn-items/', this.asnItem, {
+      headers: new HttpHeaders({
+        'Authorization': `Bearer ${token}`
+      })
+    }).subscribe(() => {
+      alert('ASN item created successfully');
+      this.goBack();
+    }, error => {
+      console.error('Error creating ASN item', error);
+      alert('Failed to create ASN item' + error.message);
+    });
+  }
+
+  showAsnList(): void {
+    const token = this.authService.getToken();
+    this.http.get<any[]>('http://localhost:9081/asn-service/api/clients/asns/client-list/1', {
+      headers: new HttpHeaders({
+        'Authorization': `Bearer ${token}`
+      })
+    }).subscribe(data => {
+      this.asns = data.map(asn => ({
+        ...asn,
+        // Convert UTC date-time to a local date-time string for display, ensuring it is interpreted as UTC
+        expectedArrivalTime: new Date(asn.expectedArrivalTime).toISOString().slice(0, 16)
+      }));
+    }, error => {
+      console.error('Error fetching ASN list', error);
+    });
+  }
+
+  showProducts(): void {
+    const token = this.authService.getToken();
+    this.http.get<any[]>('http://localhost:9081/asn-service/api/clients/products/my-products-list', {
+      headers: new HttpHeaders({
+        'Authorization': `Bearer ${token}`
+      })
+    }).subscribe(data => {
+      this.products = data; // 将获取的数据存储到products数组中
+    }, error => {
+      console.error('Error fetching products', error);
+    });
   }
 
   goBack(): void {

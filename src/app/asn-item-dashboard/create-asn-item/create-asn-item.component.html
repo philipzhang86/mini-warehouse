@@ -1,4 +1,70 @@
-<p>create-asn-item works!</p>
+<div class="create-asn-item">
+  <h2>Create ASN Item</h2>
+  <form (ngSubmit)="form.valid && createAsnItem()" #form="ngForm">
+    <!-- ASN ID -->
+    <input type="text" [(ngModel)]="asnItem.asnId" name="asnId" placeholder="ASN ID" required ngModel #asnId="ngModel">
 
-<button (click)="goBack()">Back</button>
-<router-outlet></router-outlet>
+    <input type="text" [(ngModel)]="asnItem.asnItemName" name="asnItemName" placeholder="Product Name" required ngModel
+      #asnItemName="ngModel">
+
+    <!-- Product ID -->
+    <input type="text" [(ngModel)]="asnItem.productId" name="productId" placeholder="Product ID" required ngModel
+      #productId="ngModel">
+
+    <input type="text" [(ngModel)]="asnItem.skuId" name="sku" placeholder="SKU" required ngModel #sku="ngModel">
+
+    <!-- Quantity -->
+    <input type="text" [(ngModel)]="asnItem.quantity" name="quantity" placeholder="Quantity" required ngModel
+      #quantity="ngModel">
+
+    <!-- Submit Button -->
+    <button type="submit" [disabled]="!form.valid">Create ASN Item</button>
+
+  </form>
+
+
+
+  <p>All your pending inbound advanced shipping notices </p>
+
+  <table *ngIf="asns.length > 0">
+    <tr>
+      <th>ASN ID</th>
+      <th>Client ID</th>
+      <th>Expected Arrival Time</th>
+      <th>Status</th>
+    </tr>
+    <tr *ngFor="let asn of asns">
+      <td>{{ asn.id }}</td>
+      <td>{{ asn.clientId }}</td>
+      <td>{{ asn.expectedArrivalTime | date: 'short' }}</td>
+    </tr>
+  </table>
+  <p *ngIf="asns.length === 0">No ASNs found.</p>
+
+  <br>
+  <p>Your products list</p>
+  <table *ngIf="products.length > 0">
+    <tr>
+      <th>Product ID</th>
+      <th>Name</th>
+      <th>Client ID</th>
+      <th>SKU</th>
+      <th>Currency</th>
+      <th>Selling Price</th>
+      <th>Short Description</th>
+    </tr>
+    <tr *ngFor="let product of products">
+      <td>{{product.id}}</td>
+      <td>{{product.name}}</td>
+      <td>{{product.clientId}}</td>
+      <td>{{product.sku}}</td>
+      <td>{{product.currency}}</td>
+      <td>{{product.sellingPrice}}</td>
+      <td>{{product.shortDescription}}</td>
+    </tr>
+  </table>
+
+
+  <button (click)="goBack()">Back</button>
+  <router-outlet></router-outlet>
+</div>
