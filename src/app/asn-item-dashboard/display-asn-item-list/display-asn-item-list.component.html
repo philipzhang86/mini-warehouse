@@ -1,0 +1,35 @@
+<div class="display-asn-item-list">
+  <h2>List all items info by same ASN id </h2>
+
+  <div>
+    <input type="number" [(ngModel)]="asnId" placeholder="Enter ASN ID">
+    <button (click)="fetchAsnById(asnId)">Search</button>
+  </div>
+
+  <div *ngIf="asn">
+    <h3>ASN Details:</h3>
+    <p>Client ID: {{ asn.clientId }}</p>
+    <p>Expected Arrival Time: {{ asn.expectedArrivalTime | date: 'short' }}</p>
+    <p>Created Time: {{ asn.createdDate | date: 'short' }}</p>
+
+    <h4>ASN Items:</h4>
+    <table *ngIf="asnItems.length > 0">
+      <tr>
+        <th>ASN ID</th>
+        <th>ASN Item Name</th>
+        <th>SKU</th>
+        <th>Quantity</th>
+      </tr>
+      <tr *ngFor="let item of asnItems">
+        <td>{{ item.asnId }}</td>
+        <td>{{ item.asnItemName }}</td>
+        <td>{{ item.skuId }}</td>
+        <td>{{ item.quantity }}</td>
+      </tr>
+    </table>
+    <p *ngIf="asnItems.length === 0">No items found for this ASN.</p>
+  </div>
+
+  <button (click)="goBack()">Back</button>
+  <router-outlet></router-outlet>
+</div>
