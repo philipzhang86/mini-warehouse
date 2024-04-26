@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router'; // 引入Router服务
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-asn-dashboard',
