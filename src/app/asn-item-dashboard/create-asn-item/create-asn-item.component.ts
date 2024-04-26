@@ -76,6 +76,33 @@ export class CreateAsnItemComponent implements OnInit {
     });
   }
 
+  onAsnSelect(asn: any): void {
+    // Toggle selection
+    if (this.asnItem.asnId === asn.id) {
+      // If already selected, deselect it
+      this.asnItem.asnId = '';
+    } else {
+      // Select the ASN and fill in the form fields
+      this.asnItem.asnId = asn.id;
+    }
+  }
+
+  onProductSelect(product: any): void {
+    // Toggle selection
+    if (this.asnItem.productId === product.id) {
+      // If already selected, deselect it
+      this.asnItem.productId = '';
+      this.asnItem.asnItemName = '';
+      this.asnItem.skuId = '';
+    } else {
+      // Select the product and fill in the form fields
+      this.asnItem.productId = product.id;
+      this.asnItem.asnItemName = product.name;
+      this.asnItem.skuId = product.sku;
+    }
+  }
+
+
   goBack(): void {
     this.router.navigate(['/client-dashboard/asn-operations-center/asn-item-dashboard']);
   }

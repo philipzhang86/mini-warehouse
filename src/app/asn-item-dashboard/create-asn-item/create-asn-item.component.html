@@ -26,25 +26,28 @@
 
   <p>All your pending inbound advanced shipping notices </p>
 
+  <!-- ASN List with Checkbox -->
   <table *ngIf="asns.length > 0">
     <tr>
+      <th>Select</th>
       <th>ASN ID</th>
       <th>Client ID</th>
       <th>Expected Arrival Time</th>
       <th>Status</th>
     </tr>
     <tr *ngFor="let asn of asns">
+      <td><input type="checkbox" name="selectedAsn" (change)="onAsnSelect(asn)"
+          [disabled]="asnItem.asnId && asnItem.asnId !== asn.id"></td>
       <td>{{ asn.id }}</td>
       <td>{{ asn.clientId }}</td>
       <td>{{ asn.expectedArrivalTime | date: 'short' }}</td>
     </tr>
   </table>
-  <p *ngIf="asns.length === 0">No ASNs found.</p>
 
-  <br>
-  <p>Your products list</p>
+  <!-- Product List with Checkbox -->
   <table *ngIf="products.length > 0">
     <tr>
+      <th>Select</th>
       <th>Product ID</th>
       <th>Name</th>
       <th>Client ID</th>
@@ -54,15 +57,18 @@
       <th>Short Description</th>
     </tr>
     <tr *ngFor="let product of products">
-      <td>{{product.id}}</td>
-      <td>{{product.name}}</td>
-      <td>{{product.clientId}}</td>
-      <td>{{product.sku}}</td>
-      <td>{{product.currency}}</td>
-      <td>{{product.sellingPrice}}</td>
-      <td>{{product.shortDescription}}</td>
+      <td><input type="checkbox" name="selectedProduct" (change)="onProductSelect(product)"
+          [disabled]="asnItem.productId && asnItem.productId !== product.id"></td>
+      <td>{{ product.id }}</td>
+      <td>{{ product.name }}</td>
+      <td>{{ product.clientId }}</td>
+      <td>{{ product.sku }}</td>
+      <td>{{ product.currency }}</td>
+      <td>{{ product.sellingPrice }}</td>
+      <td>{{ product.shortDescription }}</td>
     </tr>
   </table>
+
 
 
   <button (click)="goBack()">Back</button>

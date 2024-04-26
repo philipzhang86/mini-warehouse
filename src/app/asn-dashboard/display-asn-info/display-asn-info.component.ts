@@ -39,6 +39,7 @@ export class DisplayAsnInfoComponent implements OnInit {
         this.asn = null;
       }
     );
+    this.fetchAsnItems(id);
   }
 
   fetchAsnItems(id: number): void {
