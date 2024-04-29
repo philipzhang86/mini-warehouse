@@ -43,6 +43,7 @@ import { DisplayInventoryItemInfoComponent } from './staff-dashboard/inventory-d
 import { DisplayInventoryItemsListComponent } from './staff-dashboard/inventory-dashboard/display-inventory-items-list/display-inventory-items-list.component';
 import { UpdateInventoryItemComponent } from './staff-dashboard/inventory-dashboard/update-inventory-item/update-inventory-item.component';
 import { DeleteInventoryItemComponent } from './staff-dashboard/inventory-dashboard/delete-inventory-item/delete-inventory-item.component';
+import { SendAsnComponent } from './asn-dashboard/send-asn/send-asn.component';
 
 
 
@@ -85,6 +86,7 @@ import { DeleteInventoryItemComponent } from './staff-dashboard/inventory-dashbo
     DisplayInventoryItemsListComponent,
     UpdateInventoryItemComponent,
     DeleteInventoryItemComponent,
+    SendAsnComponent,
   ],
   imports: [
     BrowserModule,
