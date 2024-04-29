@@ -1,4 +1,24 @@
-<p>display-inventory-items-list works!</p>
+<div class="display-inventory-items-list">
+  <h2>Inventory Items List</h2>
+  <table *ngIf="inventoryItems.length > 0">
+    <tr>
+      <th>Item ID</th>
+      <th>Client ID</th>
+      <th>Product ID</th>
+      <th>Product Name</th>
+      <th>SKU</th>
+      <th>Quanlity</th>
+    </tr>
+    <tr *ngFor="let inventory of inventoryItems">
+      <td>{{inventory.id}}</td>
+      <td>{{inventory.clientId}}</td>
+      <td>{{inventory.productId}}</td>
+      <td>{{inventory.productName}}</td>
+      <td>{{inventory.sku}}</td>
+      <td>{{inventory.quantity}}</td>
+    </tr>
+  </table>
 
-<button (click)="goBack()">Back</button>
-<router-outlet></router-outlet>
+  <button (click)="goBack()">Back</button>
+  <router-outlet></router-outlet>
+</div>

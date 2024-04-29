@@ -9,6 +9,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   styleUrls: ['./display-inventory-items-list.component.scss']
 })
 export class DisplayInventoryItemsListComponent implements OnInit {
+  inventoryItems: any[] = [];
 
   constructor(
     private router: Router,
@@ -17,6 +18,22 @@ export class DisplayInventoryItemsListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.loadInventoryItems();
+  }
+
+  loadInventoryItems(): void {
+    const token = this.authService.getToken();
+    this.http.get<any[]>('http://localhost:9082/inventory-service/api/staffs/inventories/list', {
+      headers: new HttpHeaders({
+        'Authorization': `Bearer ${token}`
+      })
+    }).subscribe(data => {
+      this.inventoryItems = data; // 将获取的数据存储到InventoryItems数组中
+
+    }, error => {
+      console.error('Error fetching inventory items list', error);
+      alert('Failed to fetch inventory items list');
+    });
   }
 
   goBack(): void {
