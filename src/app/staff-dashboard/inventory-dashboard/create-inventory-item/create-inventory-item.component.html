@@ -1,4 +1,30 @@
-<p>create-inventory-item works!</p>
+<div class="create-inventory-item">
+  <h2>Create Inventory Item</h2>
+  <form (ngSubmit)="form.valid && createInventoryItem()" #form="ngForm">
+    <!-- Product Id -->
+    <input type="text" [(ngModel)]="inventory.productId" name="productId" placeholder="Product Id" required ngModel
+      #productId="ngModel">
+
+    <!-- Client Id -->
+    <input type="text" [(ngModel)]="inventory.clientId" name="clientId" placeholder="Client Id" required ngModel
+      #clientId="ngModel">
+
+    <!-- Inventory Item Name -->
+    <input type="text" [(ngModel)]="inventory.productName" name="name" placeholder="Inventory Item Name" required
+      ngModel #name="ngModel">
+
+    <!-- SKU -->
+    <input type="text" [(ngModel)]="inventory.sku" name="sku" placeholder="SKU" required ngModel #sku="ngModel">
+
+    <!-- Quantity -->
+    <input type="text" [(ngModel)]="inventory.quantity" name="quantity" placeholder="Quantity" required ngModel ngModel
+      #quantity="ngModel">
+
+    <!-- Submit Button -->
+    <button type="submit" [disabled]="!form.valid">Create Inventory Item</button>
+  </form>
+
+</div>
 
 <button (click)="goBack()">Back</button>
 <router-outlet></router-outlet>

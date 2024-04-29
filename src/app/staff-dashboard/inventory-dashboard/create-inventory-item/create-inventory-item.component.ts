@@ -10,6 +10,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./create-inventory-item.component.scss']
 })
 export class CreateInventoryItemComponent implements OnInit {
+  inventory = {
+    clientId: '',//!
+    productId: '',//1
+    productName: '',
+    sku: '',
+    quantity: ''//!
+  }
 
   constructor(
     private http: HttpClient,
@@ -18,6 +25,21 @@ export class CreateInventoryItemComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+  }
+
+  createInventoryItem(): void {
+    const token = this.authService.getToken();
+    this.http.post('http://localhost:9082/inventory-service/api/staffs/inventories/', this.inventory, {
+      headers: new HttpHeaders({
+        'Authorization': `Bearer ${token}`
+      })
+    }).subscribe(() => {
+      alert('Inventory item created successfully');
+      this.goBack();
+    }, error => {
+      console.error('Error creating inventory item', error);
+      alert('Failed to create inventory item' + error.message);
+    });
   }
 
   goBack(): void {
