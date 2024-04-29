@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Location } from '@angular/common';
 import { Router } from '@angular/router'; // 引入Router服务
 
 @Component({

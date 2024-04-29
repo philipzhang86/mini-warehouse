@@ -31,6 +31,7 @@ import { UpdateAsnItemComponent } from './asn-item-dashboard/update-asn-item/upd
 import { DisplayAsnItemListComponent } from './asn-item-dashboard/display-asn-item-list/display-asn-item-list.component';
 import { DeleteAsnItemComponent } from './asn-item-dashboard/delete-asn-item/delete-asn-item.component';
 import { InventoryDashboardComponent } from './staff-dashboard/inventory-dashboard/inventory-dashboard.component';
+import { CreateInventoryItemComponent } from './staff-dashboard/inventory-dashboard/create-inventory-item/create-inventory-item.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -92,7 +93,7 @@ const routes: Routes = [
       {
         path: 'inventory-dashboard', component: InventoryDashboardComponent,
         children: [
-
+          { path: 'create-inventory-item', component: CreateInventoryItemComponent }
         ]
       }
     ]
