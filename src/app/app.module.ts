@@ -39,6 +39,8 @@ import { DisplayAsnItemListComponent } from './asn-item-dashboard/display-asn-it
 import { DeleteAsnItemComponent } from './asn-item-dashboard/delete-asn-item/delete-asn-item.component';
 import { InventoryDashboardComponent } from './staff-dashboard/inventory-dashboard/inventory-dashboard.component';
 import { CreateInventoryItemComponent } from './staff-dashboard/inventory-dashboard/create-inventory-item/create-inventory-item.component';
+import { DisplayInventoryItemInfoComponent } from './staff-dashboard/inventory-dashboard/display-inventory-item-info/display-inventory-item-info.component';
+
 
 
 @NgModule({
@@ -76,6 +78,7 @@ import { CreateInventoryItemComponent } from './staff-dashboard/inventory-dashbo
     DeleteAsnItemComponent,
     InventoryDashboardComponent,
     CreateInventoryItemComponent,
+    DisplayInventoryItemInfoComponent,
   ],
   imports: [
     BrowserModule,

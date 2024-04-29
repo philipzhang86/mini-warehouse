@@ -1,0 +1,35 @@
+<div class="display-inventory-item-info">
+  <h2>Display Inventory Item Info</h2>
+
+  <form #searchForm="ngForm" (ngSubmit)="searchInventoryItem(searchForm)">
+    <div>
+      <label for="id">Search By ID:</label>
+      <input type="text" id="inventoryId" [(ngModel)]="search.inventoryId" name="inventoryId"
+        placeholder="Inventory Item ID" [disabled]="search.name.length > 0 || search.sku.length > 0">
+    </div>
+    <div>
+      <label for="name">Search By Product Name and Client Id:</label>
+      <input type="text" id="name" [(ngModel)]="search.name" name="name" placeholder="Inventory Item Name"
+        [disabled]="search.inventoryId.length > 0 || search.sku.length > 0">
+      <input type="text" id="clientId" [(ngModel)]="search.clientId" name="clientId" placeholder="Client Id">
+    </div>
+    <div>
+      <label for="sku">Search By SKU:</label>
+      <input type="text" id="sku" [(ngModel)]="search.sku" name="sku" placeholder="SKU"
+        [disabled]="search.inventoryId.length > 0 || search.name.length > 0">
+    </div>
+    <button type="submit">Search</button>
+  </form>
+
+  <div *ngIf="inventory">
+    <h3>Inventory Item Details:</h3>
+    <p>Inventory Id: {{inventory.inventoryId}}</p>
+    <p>Client Id: {{inventory.clientId}}</p>
+    <p>Product Name: {{inventory.productName}}</p>
+    <p>SKU: {{inventory.sku}}</p>
+    <p>Quantity: {{inventory.quantity}}</p>
+  </div>
+
+  <button (click)="goBack()">Back</button>
+  <router-outlet></router-outlet>
+</div>
