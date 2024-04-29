@@ -1,0 +1,51 @@
+<div class="update-inventory-item">
+  <h2>Update Inventory Item Info</h2>
+
+  <form #searchForm="ngForm" (ngSubmit)="searchInventoryItem(searchForm)">
+    <div>
+      <label for="id">Search By ID:</label>
+      <input type="text" id="inventoryId" [(ngModel)]="search.inventoryId" name="inventoryId"
+        placeholder="Inventory Item ID" [disabled]="search.name.length > 0 || search.sku.length > 0">
+    </div>
+    <div>
+      <label for="name">Search By Product Name and Client Id:</label>
+      <input type="text" id="name" [(ngModel)]="search.name" name="name" placeholder="Inventory Item Name"
+        [disabled]="search.inventoryId.length > 0 || search.sku.length > 0">
+      <input type="text" id="clientId" [(ngModel)]="search.clientId" name="clientId" placeholder="Client Id">
+    </div>
+    <div>
+      <label for="sku">Search By SKU:</label>
+      <input type="text" id="sku" [(ngModel)]="search.sku" name="sku" placeholder="SKU"
+        [disabled]="search.inventoryId.length > 0 || search.name.length > 0">
+    </div>
+    <button type="submit">Search</button>
+  </form>
+
+  <form (ngSubmit)="updateInventoryItem()">
+    <div>
+      <label>Inventory Id:</label>
+      <input type="text" [(ngModel)]="inventory.inventoryId" name="inventoryId" disabled>
+    </div>
+    <div>
+      <label>Client Id:</label>
+      <input type="text" [(ngModel)]="inventory.clientId" name="clientId" disabled>
+    </div>
+    <div>
+      <label>Product Name:</label>
+      <input type="text" [(ngModel)]="inventory.productName" name="productName" disabled>
+    </div>
+    <div>
+      <label>SKU:</label>
+      <input type="text" [(ngModel)]="inventory.sku" name="sku" disabled>
+    </div>
+    <div>
+      <label>Quantity:</label>
+      <input type="text" [(ngModel)]="inventory.quantity" name="quantity">
+    </div>
+    <button type="submit">Update Info</button>
+
+  </form>
+
+  <button (click)="goBack()">Back</button>
+  <router-outlet></router-outlet>
+</div>

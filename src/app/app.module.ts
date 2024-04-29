@@ -41,6 +41,7 @@ import { InventoryDashboardComponent } from './staff-dashboard/inventory-dashboa
 import { CreateInventoryItemComponent } from './staff-dashboard/inventory-dashboard/create-inventory-item/create-inventory-item.component';
 import { DisplayInventoryItemInfoComponent } from './staff-dashboard/inventory-dashboard/display-inventory-item-info/display-inventory-item-info.component';
 import { DisplayInventoryItemsListComponent } from './staff-dashboard/inventory-dashboard/display-inventory-items-list/display-inventory-items-list.component';
+import { UpdateInventoryItemComponent } from './staff-dashboard/inventory-dashboard/update-inventory-item/update-inventory-item.component';
 
 
 
@@ -81,6 +82,7 @@ import { DisplayInventoryItemsListComponent } from './staff-dashboard/inventory-
     CreateInventoryItemComponent,
     DisplayInventoryItemInfoComponent,
     DisplayInventoryItemsListComponent,
+    UpdateInventoryItemComponent,
   ],
   imports: [
     BrowserModule,
