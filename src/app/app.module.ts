@@ -37,6 +37,7 @@ import { CreateAsnItemComponent } from './asn-item-dashboard/create-asn-item/cre
 import { UpdateAsnItemComponent } from './asn-item-dashboard/update-asn-item/update-asn-item.component';
 import { DisplayAsnItemListComponent } from './asn-item-dashboard/display-asn-item-list/display-asn-item-list.component';
 import { DeleteAsnItemComponent } from './asn-item-dashboard/delete-asn-item/delete-asn-item.component';
+import { InventoryDashboardComponent } from './staff-dashboard/inventory-dashboard/inventory-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -70,7 +71,8 @@ import { DeleteAsnItemComponent } from './asn-item-dashboard/delete-asn-item/del
     CreateAsnItemComponent,
     UpdateAsnItemComponent,
     DisplayAsnItemListComponent,
-    DeleteAsnItemComponent
+    DeleteAsnItemComponent,
+    InventoryDashboardComponent
   ],
   imports: [
     BrowserModule,

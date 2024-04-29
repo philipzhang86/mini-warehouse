@@ -3,21 +3,12 @@
     <ul>
       <li routerLink="/staff-dashboard/staff-info">Staff Info</li>
       <li routerLink="/staff-dashboard/client-management">Client Management</li>
-      <li (click)="selectSection('asn')">ASN</li>
-      <li (click)="selectSection('ims')">IMS </li>
+      <li routerLink="/staff-dashboard/inventory-dashboard">Inventory Management </li>
       <li (click)="selectSection('oms')">OMS</li>
     </ul>
   </div>
   <div class="main-content">
     <router-outlet></router-outlet>
-    <ng-container *ngIf="selectedSection === 'asn'">
-      <!-- ASN Section -->
-      <p>ASN section coming soon...</p>
-    </ng-container>
-    <ng-container *ngIf="selectedSection === 'ims'">
-      <!-- IMS Section -->
-      <p>IMS section coming soon...</p>
-    </ng-container>
     <ng-container *ngIf="selectedSection === 'oms'">
       <!-- OMS Section -->
       <p>OMS section coming soon...</p>
