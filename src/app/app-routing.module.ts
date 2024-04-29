@@ -35,6 +35,7 @@ import { CreateInventoryItemComponent } from './staff-dashboard/inventory-dashbo
 import { DisplayInventoryItemInfoComponent } from './staff-dashboard/inventory-dashboard/display-inventory-item-info/display-inventory-item-info.component';
 import { DisplayInventoryItemsListComponent } from './staff-dashboard/inventory-dashboard/display-inventory-items-list/display-inventory-items-list.component';
 import { UpdateInventoryItemComponent } from './staff-dashboard/inventory-dashboard/update-inventory-item/update-inventory-item.component';
+import { DeleteInventoryItemComponent } from './staff-dashboard/inventory-dashboard/delete-inventory-item/delete-inventory-item.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -99,7 +100,8 @@ const routes: Routes = [
           { path: 'create-inventory-item', component: CreateInventoryItemComponent },
           { path: 'display-inventory-item-info', component: DisplayInventoryItemInfoComponent },
           { path: 'display-inventory-items-list', component: DisplayInventoryItemsListComponent },
-          { path: 'update-inventory-item', component: UpdateInventoryItemComponent }
+          { path: 'update-inventory-item', component: UpdateInventoryItemComponent },
+          { path: 'delete-inventory-item', component: DeleteInventoryItemComponent }
         ]
       }
     ]
